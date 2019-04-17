@@ -1,0 +1,19 @@
+<form>
+  <label>Client</label>
+  <br>
+  <input type="text" [(ngModel)]="clientName" name="clientName"/>
+  <br>
+  <button (click)="getClients()">Send</button>
+  <p>{{ clientName }}</p>
+</form>
+ <div *ngIf="client_count > 0">
+   <p>Total Users: {{ client_count }}</p>
+   <table>
+     <tr>
+       <td>Users</td>
+     </tr>
+     <tr *ngFor="let client of clientList">
+      <td> <a [routerLink]="['/infouser', client.login]">{{ client.login }}</a></td>
+    </tr>
+   </table>
+ </div>
